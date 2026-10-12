@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EstateConnect
+
+EstateConnect is a real estate networking platform designed to help property professionals connect, discover opportunities, and build relationships across international markets.
+
+## Features
+
+- **Authentication:** Sign up and log in using Supabase Auth.
+- **Professional profiles:** Create and save profile information.
+- **My Network:** Discover agents, search profiles, and send or manage connection requests.
+- **Opportunities:** Browse buyer requests, property opportunities, and agent collaborations.
+- **Communities:** Explore professional real estate communities.
+- **Responsive interface:** Built with Next.js and Tailwind CSS.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) with the App Router
+- React
+- TypeScript
+- Tailwind CSS
+- [Supabase](https://supabase.com/) for authentication and database functionality
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (LTS recommended)
+- npm
+- A Supabase project
+
+### Installation
+
+Clone the repository, then open its folder:
+
+```bash
+git clone YOUR_REPOSITORY_URL
+cd estateconnect
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the project root and configure the Supabase credentials expected by `src/lib/supabase.ts`.
+
+For example:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_publishable_key
+```
+
+Use the actual variable names expected by your project. Never commit secret service-role keys or passwords.
+
+### Run Locally
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+estateconnect/
+├── src/
+│   ├── app/
+│   │   ├── dashboard/
+│   │   ├── login/
+│   │   ├── signup/
+│   │   ├── profile-setup/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   └── lib/
+│       └── supabase.ts
+├── public/
+├── .env.local
+├── package.json
+└── README.md
+```
 
-## Learn More
+## Database
 
-To learn more about Next.js, take a look at the following resources:
+EstateConnect uses Supabase tables for profile and connection functionality. Configure the required tables, columns, and Row Level Security policies in your Supabase project before deploying.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+EstateConnect can be deployed to a platform that supports Next.js, such as Vercel.
 
-## Deploy on Vercel
+Before deploying:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Verify the application runs locally.
+2. Configure the required environment variables in the hosting platform.
+3. Configure Supabase authentication URLs and redirect URLs for the deployed domain.
+4. Verify database permissions and Row Level Security policies.
+5. Test sign-up, login, profiles, and connection requests in the deployed application.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Current Status
+
+EstateConnect is under active development. Some opportunity and community features may currently use browser-local storage or demo data rather than shared database records.
+
+## License
+
+No license has been specified yet.
